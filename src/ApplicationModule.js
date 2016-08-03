@@ -135,6 +135,7 @@ import './Models/History/SData';
 import './Models/Ticket/Offline';
 import './Models/Ticket/SData';
 import './Models/Authentication/Offline';
+import './Modules/PxSearchModule';
 
 const resource = getResource('applicationModule');
 
@@ -153,6 +154,10 @@ const resource = getResource('applicationModule');
  */
 const __class = declare('crm.ApplicationModule', [ApplicationModule], {
   searchText: resource.searchText,
+  loadModules: function loadModules() {
+    this.inherited(arguments);
+
+  },
   loadViews: function loadViews() {
     this.inherited(arguments);
 
