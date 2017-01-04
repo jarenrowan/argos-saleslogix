@@ -21,8 +21,8 @@ import '../Models/Quote/SData';
 const __class = declare('crm.Integrations.BOE.Modules.QuoteModule', [_Module], {
   defaultViews: ['quote_list'],
   init: function init() {
-    App.picklistService.registerPicklistToView('SyncStatus', 'quote_detail');
-    App.picklistService.registerPicklistToView('ErpQuoteStatus', 'quote_detail');
+    this.app.picklistService.registerPicklistToView('SyncStatus', 'quote_detail');
+    this.app.picklistService.registerPicklistToView('ErpQuoteStatus', 'quote_detail');
   },
   loadViews: function loadViews() {
     const am = this.applicationModule;
@@ -54,12 +54,12 @@ const __class = declare('crm.Integrations.BOE.Modules.QuoteModule', [_Module], {
       expose: false,
       addLineItems: function addLineItems() {
         if (!this.options.selectedEntry.ErpLogicalId) {
-          App.modal.createSimpleDialog({
+          this.app.modal.createSimpleDialog({
             title: 'alert',
             content: this.accountingEntityRequiredText,
             getContent: () => { return; },
           }).then(() => {
-            const quoteEdit = App.getView('quote_edit');
+            const quoteEdit = this.app.getView('quote_edit');
             if (quoteEdit) {
               const options = {
                 entry: this.options.selectedEntry,
@@ -70,9 +70,9 @@ const __class = declare('crm.Integrations.BOE.Modules.QuoteModule', [_Module], {
           });
           return;
         }
-        const view = App.getView('quote_line_edit');
+        const view = this.app.getView('quote_line_edit');
         if (view) {
-          const quoteItemView = App.getView('quote_lines_related');
+          const quoteItemView = this.app.getView('quote_lines_related');
           let count = 0;
           if (quoteItemView) {
             quoteItemView.getListCount({ where: `Quote.$key eq "${this.options.selectedEntry.$key}"` }).then((result) => {

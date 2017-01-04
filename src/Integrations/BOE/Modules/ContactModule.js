@@ -151,7 +151,7 @@ const __class = declare('crm.Integrations.BOE.Modules.ContactModule', [_Module],
     });
     lang.extend(crm.Views.Contact.Detail, {
       _onAddQuoteClick: function _onAddQuoteClick() {
-        const view = App.getView('quote_edit');
+        const view = this.app.getView('quote_edit');
         view.show({
           entry: this.entry,
           detailView: 'quote_detail',
@@ -160,7 +160,7 @@ const __class = declare('crm.Integrations.BOE.Modules.ContactModule', [_Module],
         });
       },
       _onAddOrderClick: function _onAddOrderClick() {
-        const view = App.getView('salesorder_edit');
+        const view = this.app.getView('salesorder_edit');
         view.show({
           entry: this.entry,
           detailView: 'salesorder_detail',

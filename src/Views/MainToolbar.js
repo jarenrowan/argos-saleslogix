@@ -15,7 +15,7 @@ const __class = declare('crm.Views.MainToolbar', [MainToolbar], {
   showTools: function showTools(tools) {
     let hasLeftDrawer;
     let isOnEdit;
-    const isOnFirstView = App.isOnFirstView();
+    const isOnFirstView = this.app.isOnFirstView();
 
     if (tools) {
       for (let i = 0; i < tools.length; i++) {
@@ -63,7 +63,7 @@ const __class = declare('crm.Views.MainToolbar', [MainToolbar], {
     ReUI.back();
   },
   navigateToHomeView: function navigateToHomeView() {
-    App.navigateToHomeView();
+    this.app.navigateToHomeView();
   },
   toggleRightDrawer: function toggleRightDrawer() {
     this._toggleDrawer('right');
@@ -72,8 +72,8 @@ const __class = declare('crm.Views.MainToolbar', [MainToolbar], {
     this._toggleDrawer('left');
   },
   onTitleClick: function onTitleClick() {
-    const state = App.snapper && App.snapper.state();
-    const view = App.getPrimaryActiveView();
+    const state = this.app.snapper && this.app.snapper.state();
+    const view = this.app.getPrimaryActiveView();
 
     if (view && state && state.state === 'closed') {
       const scrollerNode = view.get('scroller');
@@ -88,11 +88,11 @@ const __class = declare('crm.Views.MainToolbar', [MainToolbar], {
     }
   },
   _toggleDrawer: function _toggleDrawer(state) {
-    const snapperState = App.snapper.state();
+    const snapperState = this.app.snapper.state();
     if (snapperState.state === state) {
-      App.snapper.close();
+      this.app.snapper.close();
     } else {
-      App.snapper.open(state);
+      this.app.snapper.open(state);
     }
   },
 });

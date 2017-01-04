@@ -6,6 +6,7 @@ const __class = declare('crm.Integrations.BOE.Modules._Module', null, {
   defaultViews: null,
   constructor: function constructor(applicationModule) {
     this.applicationModule = applicationModule;
+    this.application = this.app = this.applicationModule.application;
   },
   init: function init() {
   },

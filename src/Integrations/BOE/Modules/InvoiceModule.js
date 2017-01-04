@@ -16,7 +16,7 @@ import '../Models/ErpInvoicePerson/SData';
 const __class = declare('crm.Integrations.BOE.Modules.InvoiceModule', [_Module], {
   defaultViews: ['invoice_list'],
   init: function init() {
-    App.picklistService.registerPicklistToView('ErpInvoiceStatus');
+    this.app.picklistService.registerPicklistToView('ErpInvoiceStatus');
   },
   loadViews: function loadViews() {
     const am = this.applicationModule;

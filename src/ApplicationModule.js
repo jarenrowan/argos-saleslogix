@@ -161,66 +161,77 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
 
     this.registerView(new Calendar({
       expose: false,
+      app: this.application,
     }));
 
     this.registerView(new Signature({
       expose: false,
+      app: this.application,
     }));
 
-    this.registerView(new Login());
-    this.registerView(new LogOff());
+    this.registerView(new Login({ app: this.application }));
+    this.registerView(new LogOff({ app: this.application }));
 
-    this.registerView(new LeftDrawer(), query('.left-drawer')[0]);
-    this.registerView(new RightDrawer(), query('.right-drawer')[0]);
+    this.registerView(new LeftDrawer({ app: this.application }), query('.left-drawer')[0]);
+    this.registerView(new RightDrawer({ app: this.application }), query('.right-drawer')[0]);
 
     this.registerView(new OfflineDetail({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new OfflineList({
       expose: false,
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new RecentlyViewedList({
       expose: true,
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new BriefcaseList({
       expose: true,
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new Help({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new Settings({
       canRedirectTo: true,
+      app: this.application,
     }));
-    this.registerView(new Configure());
-    this.registerView(new PickList());
-    this.registerView(new SelectList());
-    this.registerView(new SpeedSearchList());
-    this.registerView(new AddAccountContact());
-    this.registerView(new AreaCategoryIssueLookup());
-    this.registerView(new ExchangeRateLookup());
-    this.registerView(new FileSelect());
+    this.registerView(new Configure({ app: this.application }));
+    this.registerView(new PickList({ app: this.application }));
+    this.registerView(new SelectList({ app: this.application }));
+    this.registerView(new SpeedSearchList({ app: this.application }));
+    this.registerView(new AddAccountContact({ app: this.application }));
+    this.registerView(new AreaCategoryIssueLookup({ app: this.application }));
+    this.registerView(new ExchangeRateLookup({ app: this.application }));
+    this.registerView(new FileSelect({ app: this.application }));
 
-    this.registerView(new NameEdit());
-    this.registerView(new TextEdit());
+    this.registerView(new NameEdit({ app: this.application }));
+    this.registerView(new TextEdit({ app: this.application }));
     this.registerView(new AddressList({
       id: 'address_related',
       expose: false,
       defaultSearchTerm: function defaultSearchTerm() {
         return '';
       },
+      app: this.application,
     }));
-    this.registerView(new AddressEdit());
+    this.registerView(new AddressEdit({ app: this.application }));
 
     this.registerView(new AccountList({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new AccountDetail({
       canRedirectTo: true,
+      app: this.application,
     }));
-    this.registerView(new AccountEdit());
+    this.registerView(new AccountEdit({ app: this.application }));
     this.registerView(new AccountList({
       id: 'account_related',
       expose: false,
@@ -228,22 +239,26 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: function defaultSearchTerm() {
         return '';
       },
+      app: this.application,
     }));
 
-    this.registerView(new CalendarView());
-    this.registerView(new DayView());
-    this.registerView(new MonthView());
-    this.registerView(new WeekView());
+    this.registerView(new CalendarView({ app: this.application }));
+    this.registerView(new DayView({ app: this.application }));
+    this.registerView(new MonthView({ app: this.application }));
+    this.registerView(new WeekView({ app: this.application }));
 
     // Charts
     this.registerView(new GenericBar({
       expose: false,
+      app: this.application,
     }));
     this.registerView(new GenericLine({
       expose: false,
+      app: this.application,
     }));
     this.registerView(new GenericPie({
       expose: false,
+      app: this.application,
     }));
 
     this.registerView(new CompetitorList({
@@ -252,15 +267,18 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new ContactList({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new ContactDetail({
       canRedirectTo: true,
+      app: this.application,
     }));
-    this.registerView(new ContactEdit());
+    this.registerView(new ContactEdit({ app: this.application }));
     this.registerView(new ContactList({
       id: 'contact_related',
       expose: false,
@@ -268,6 +286,7 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new ContractList({
@@ -276,37 +295,44 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new ErrorLogList({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new ErrorLogDetail({
       canRedirectTo: true,
+      app: this.application,
     }));
 
-    this.registerView(new EventEdit());
+    this.registerView(new EventEdit({ app: this.application }));
     this.registerView(new EventList({
       expose: false,
+      app: this.application,
     }));
-    this.registerView(new EventDetail());
+    this.registerView(new EventDetail({ app: this.application }));
     this.registerView(new EventList({
       id: 'event_related',
       expose: false,
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
-    this.registerView(new GroupsSelector());
+    this.registerView(new GroupsSelector({ app: this.application }));
 
-    this.registerView(new OpportunityEdit());
-    this.registerView(new OpportunityQuickEdit());
+    this.registerView(new OpportunityEdit({ app: this.application }));
+    this.registerView(new OpportunityQuickEdit({ app: this.application }));
     this.registerView(new OpportunityList({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new OpportunityDetail({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new OpportunityList({
       id: 'opportunity_related',
@@ -315,17 +341,19 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
-    this.registerView(new OpportunityContactEdit());
-    this.registerView(new OpportunityContactList());
-    this.registerView(new OpportunityContactDetail());
+    this.registerView(new OpportunityContactEdit({ app: this.application }));
+    this.registerView(new OpportunityContactList({ app: this.application }));
+    this.registerView(new OpportunityContactDetail({ app: this.application }));
     this.registerView(new OpportunityContactList({
       id: 'opportunitycontact_related',
       expose: false,
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new OpportunityProductList({
@@ -334,24 +362,29 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new OpportunityProductDetail({
       id: 'opportunityproduct_detail',
       expose: false,
+      app: this.application,
     }));
 
     this.registerView(new OpportunityProductEdit({
       id: 'opportunityproduct_edit',
       expose: false,
+      app: this.application,
     }));
 
-    this.registerView(new LeadEdit());
+    this.registerView(new LeadEdit({ app: this.application }));
     this.registerView(new LeadList({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new LeadDetail({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new LeadList({
       id: 'lead_related',
@@ -360,15 +393,18 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new TicketList({
       canRedirectTo: true,
+      app: this.application,
     }));
     this.registerView(new TicketDetail({
       canRedirectTo: true,
+      app: this.application,
     }));
-    this.registerView(new TicketEdit());
+    this.registerView(new TicketEdit({ app: this.application }));
     this.registerView(new TicketList({
       id: 'ticket_related',
       expose: false,
@@ -376,51 +412,56 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
-    this.registerView(new TicketActivityList());
-    this.registerView(new TicketActivityDetail());
-    this.registerView(new TicketActivityEdit());
-    this.registerView(new TicketActivityRateLookup());
+    this.registerView(new TicketActivityList({ app: this.application }));
+    this.registerView(new TicketActivityDetail({ app: this.application }));
+    this.registerView(new TicketActivityEdit({ app: this.application }));
+    this.registerView(new TicketActivityRateLookup({ app: this.application }));
     this.registerView(new TicketActivityList({
       id: 'ticketactivity_related',
       expose: false,
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
-    this.registerView(new TicketActivityItemList());
-    this.registerView(new TicketActivityItemDetail());
+    this.registerView(new TicketActivityItemList({ app: this.application }));
+    this.registerView(new TicketActivityItemDetail({ app: this.application }));
     this.registerView(new TicketActivityItemList({
       id: 'ticketactivityitem_related',
       expose: false,
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new ActivityDetail({
       canRedirectTo: true,
+      app: this.application,
     }));
-    this.registerView(new ActivityEdit());
-    this.registerView(new ActivityComplete());
-    this.registerView(new ActivityTypesList());
+    this.registerView(new ActivityEdit({ app: this.application }));
+    this.registerView(new ActivityComplete({ app: this.application }));
+    this.registerView(new ActivityTypesList({ app: this.application }));
     this.registerView(new ActivityList({
       id: 'activity_related',
       expose: false,
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
-    this.registerView(new MyDayList());
-    this.registerView(new MyActivityList());
-    this.registerView(new ActivityRecurring());
+    this.registerView(new MyDayList({ app: this.application }));
+    this.registerView(new MyActivityList({ app: this.application }));
+    this.registerView(new ActivityRecurring({ app: this.application }));
 
-    this.registerView(new HistoryDetail());
-    this.registerView(new HistoryList());
-    this.registerView(new HistoryEdit());
+    this.registerView(new HistoryDetail({ app: this.application }));
+    this.registerView(new HistoryList({ app: this.application }));
+    this.registerView(new HistoryEdit({ app: this.application }));
     this.registerView(new HistoryList({
       id: 'history_related',
       expose: false,
@@ -428,18 +469,22 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new CalendarAccessList({
       expose: false,
+      app: this.application,
     }));
 
     this.registerView(new UserList({
       expose: false,
+      app: this.application,
     }));
 
     this.registerView(new OwnerList({
       expose: false,
+      app: this.application,
     }));
 
     this.registerView(new ProductList({
@@ -448,6 +493,7 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new ProductProgramList({
@@ -456,25 +502,29 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
 
     this.registerView(new LeadSourceList({
       expose: false,
+      app: this.application,
     }));
 
     this.registerView(new TicketUrgencyLookup({
       expose: false,
+      app: this.application,
     }));
 
-    this.registerView(new ViewAttachment());
-    this.registerView(new AddAttachment());
-    this.registerView(new MyAttachmentList());
+    this.registerView(new ViewAttachment({ app: this.application }));
+    this.registerView(new AddAttachment({ app: this.application }));
+    this.registerView(new MyAttachmentList({ app: this.application }));
     this.registerView(new AttachmentList({
       id: 'account_attachment_related',
       expose: false,
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
     this.registerView(new AttachmentList({
       id: 'contact_attachment_related',
@@ -482,6 +532,7 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
     this.registerView(new AttachmentList({
       id: 'lead_attachment_related',
@@ -489,6 +540,7 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
     this.registerView(new AttachmentList({
       id: 'ticket_attachment_related',
@@ -496,6 +548,7 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
     this.registerView(new AttachmentList({
       id: 'opportunity_attachment_related',
@@ -503,6 +556,7 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
     this.registerView(new AttachmentList({
       id: 'activity_attachment_related',
@@ -510,6 +564,7 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
     this.registerView(new AttachmentList({
       id: 'history_attachment_related',
@@ -517,9 +572,11 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       defaultSearchTerm: () => {
         return '';
       },
+      app: this.application,
     }));
     this.registerView(new OfflineOptionsEdit({
       expose: false,
+      app: this.application,
     }));
   },
   loadToolbars: function loadToolbars() {
@@ -527,10 +584,12 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
 
     this.registerToolbar(new MainToolbar({
       name: 'tbar',
+      app: this.application,
     }));
 
     this.registerToolbar(new UpdateToolbar({
       name: 'updatebar',
+      app: this.application,
     }));
   },
   loadCustomizations: function loadCustomizations() {
@@ -562,20 +621,20 @@ const __class = declare('crm.ApplicationModule', [ApplicationModule], {
       items: [{
         name: 'user_detail',
         description: resource.userInformationText,
-        fn: () => App.requestUserDetails(),
+        fn: () => this.application.requestUserDetails(),
       }, {
         name: 'user_options',
         description: resource.userOptionsText,
-        fn: () => App.requestUserOptions(),
+        fn: () => this.application.requestUserOptions(),
       }, {
         name: 'system_options',
         description: resource.systemOptionsText,
-        fn: () => App.requestSystemOptions(),
+        fn: () => this.application.requestSystemOptions(),
       }, {
         name: 'integrations',
         description: resource.integrationsText,
         fn: () => {
-          const model = this.application.ModelManager.getModel(MODEL_NAMES.INTEGRATION, MODEL_TYPES.SDATA);
+          const model = this.application.ModelManager.getModel(MODEL_NAMES.INTEGRATION, MODEL_TYPES.SDATA, { app: this.application });
           return model.getEntries().then((results) => {
             this.application.context.integrations = results;
             return results;

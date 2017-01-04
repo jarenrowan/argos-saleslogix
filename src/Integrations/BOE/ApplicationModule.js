@@ -51,8 +51,8 @@ const __class = declare('crm.Integrations.BOE.ApplicationModule', [ApplicationMo
   init: function init() {
     this.inherited(arguments);
 
-    App.picklistService = PicklistService;
-    App.enableDashboards = this.enableDashboards;
+    this.application.picklistService = PicklistService;
+    this.application.enableDashboards = this.enableDashboards;
     this.modules = [
       new AccountAssociationModule(this),
       new AccountModule(this),
@@ -146,7 +146,7 @@ const __class = declare('crm.Integrations.BOE.ApplicationModule', [ApplicationMo
     lang.extend(argos._EditBase, {
       onInsertCompleted: function onInsertCompleted(entry) {
         if (this.options && this.options.detailView) {
-          const view = App.getView(this.options.detailView);
+          const view = this.app.getView(this.options.detailView);
           if (view) {
             view.show({
               key: entry.$key,
@@ -159,7 +159,7 @@ const __class = declare('crm.Integrations.BOE.ApplicationModule', [ApplicationMo
         }
         if (this.options && this.options.returnTo) {
           const returnTo = this.options.returnTo;
-          const view = App.getView(returnTo);
+          const view = this.app.getView(returnTo);
           if (view) {
             view.show();
           } else {

@@ -25,8 +25,8 @@ import '../Models/ErpSalesOrderPerson/SData';
 const __class = declare('crm.Integrations.BOE.Modules.SalesOrderModule', [_Module], {
   defaultViews: ['salesorder_list'],
   init: function init() {
-    App.picklistService.registerPicklistToView('SyncStatus', 'salesorder_detail');
-    App.picklistService.registerPicklistToView('ErpSalesOrderStatus', 'salesorder_detail');
+    this.app.picklistService.registerPicklistToView('SyncStatus', 'salesorder_detail');
+    this.app.picklistService.registerPicklistToView('ErpSalesOrderStatus', 'salesorder_detail');
   },
   loadViews: function loadViews() {
     const am = this.applicationModule;
@@ -42,12 +42,12 @@ const __class = declare('crm.Integrations.BOE.Modules.SalesOrderModule', [_Modul
       expose: false,
       addLineItems: function addLineItems() {
         if (!this.options.selectedEntry.ErpLogicalId) {
-          App.modal.createSimpleDialog({
+          this.app.modal.createSimpleDialog({
             title: 'alert',
             content: this.accountingEntityRequiredText,
             getContent: () => { return; },
           }).then(() => {
-            const orderEdit = App.getView('salesorder_edit');
+            const orderEdit = this.app.getView('salesorder_edit');
             if (orderEdit) {
               const options = {
                 entry: this.options.selectedEntry,
@@ -58,7 +58,7 @@ const __class = declare('crm.Integrations.BOE.Modules.SalesOrderModule', [_Modul
           });
           return;
         }
-        const view = App.getView('salesorder_item_edit');
+        const view = this.app.getView('salesorder_item_edit');
         if (view) {
           const options = {
             insert: true,

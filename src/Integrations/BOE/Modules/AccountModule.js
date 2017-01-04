@@ -76,8 +76,8 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
 
 
   init: function init() {
-    App.picklistService.registerPicklistToView('SyncStatus', 'account_detail');
-    App.picklistService.registerPicklistToView('ErpAccountStatus', 'account_detail');
+    this.application.picklistService.registerPicklistToView('SyncStatus', 'account_detail');
+    this.application.picklistService.registerPicklistToView('ErpAccountStatus', 'account_detail');
   },
   loadViews: function loadViews() {
     const am = this.applicationModule;
@@ -553,7 +553,7 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
         canPromotePromise.then((val) => {
           this.hideBusy();
           if (!val.value) {
-            App.modal.createSimpleDialog({
+            this.app.modal.createSimpleDialog({
               title: 'alert',
               content: val.result,
               getContent: () => { return; },
@@ -565,7 +565,7 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
         });
       },
       _onAddQuoteClick: function _onAddQuoteClick() {
-        const view = App.getView('quote_edit');
+        const view = this.app.getView('quote_edit');
         view.show({
           entry: this.entry,
           fromContext: this,
@@ -574,7 +574,7 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
         });
       },
       _onAddOrderClick: function _onAddOrderClick() {
-        const view = App.getView('salesorder_edit');
+        const view = this.app.getView('salesorder_edit');
         view.show({
           entry: this.entry,
           fromContext: this,
@@ -585,8 +585,8 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
       hideBusy: function hideBusy() {
         if (this._busyIndicator) {
           this._busyIndicator.complete();
-          App.modal.disableClose = false;
-          App.modal.hide();
+          this.app.modal.disableClose = false;
+          this.app.modal.hide();
         }
       },
       showBusy: function showBusy() {
@@ -594,9 +594,9 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
           this._busyIndicator = new Busy({ id: `${this.id}-busyIndicator` });
         }
         this._busyIndicator.start();
-        App.modal.disableClose = true;
-        App.modal.showToolbar = false;
-        App.modal.add(this._busyIndicator);
+        this.app.modal.disableClose = true;
+        this.app.modal.showToolbar = false;
+        this.app.modal.add(this._busyIndicator);
       },
     });
 
@@ -673,8 +673,8 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
       hideBusy: function hideBusy() {
         if (this._busyIndicator) {
           this._busyIndicator.complete();
-          App.modal.disableClose = false;
-          App.modal.hide();
+          this.app.modal.disableClose = false;
+          this.app.modal.hide();
         }
       },
       showBusy: function showBusy() {
@@ -682,9 +682,9 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
           this._busyIndicator = new Busy({ id: `${this.id}-busyIndicator` });
         }
         this._busyIndicator.start();
-        App.modal.disableClose = true;
-        App.modal.showToolbar = false;
-        App.modal.add(this._busyIndicator);
+        this.app.modal.disableClose = true;
+        this.app.modal.showToolbar = false;
+        this.app.modal.add(this._busyIndicator);
       },
     });
 
@@ -774,7 +774,7 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
         property: 'ErpStatus',
         label: this.erpStatusText,
         renderer: (value) => {
-          const text = App.picklistService.getPicklistItemTextByCode('ErpAccountStatus', value);
+          const text = this.app.picklistService.getPicklistItemTextByCode('ErpAccountStatus', value);
           if (text) {
             return text;
           }
@@ -791,7 +791,7 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
         label: this.syncStatusText,
         property: 'SyncStatus',
         renderer: (value) => {
-          const text = App.picklistService.getPicklistItemTextByCode('SyncStatus', value);
+          const text = this.app.picklistService.getPicklistItemTextByCode('SyncStatus', value);
           if (text) {
             return text;
           }
@@ -918,7 +918,7 @@ const __class = declare('crm.Integrations.BOE.Modules.AccountModule', [_Module],
         }],
       },
     });
-    if (App.enableDashboards) {
+    if (this.app.enableDashboards) {
       am.registerCustomization('detail', 'account_detail', {
         at: function at(row) {
           return row.name === 'RelatedItemsSection';

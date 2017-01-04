@@ -195,7 +195,7 @@ const __class = declare('crm.Application', [Application], {
   hasMultiCurrency: function hasMultiCurrency() {
     // Check if the configuration specified multiCurrency, this will override the dynamic check.
     // A configuration is not ideal, and we should refactor the edit view to process the layout when it first recieves its data,
-    // instead of on startup. We cannot check App.context data that was loaded after login when the startup method is used.
+    // instead of on startup. We cannot check this.context data that was loaded after login when the startup method is used.
     if (this.multiCurrency) {
       return true;
     }
@@ -289,7 +289,7 @@ const __class = declare('crm.Application', [Application], {
     this.inherited(arguments);
 
     if (this.isOnline() || !this.enableCaching) {
-      if (App.mingleEnabled) {
+      if (this.mingleEnabled) {
         this.handleMingleAuthentication();
       } else {
         this.handleAuthentication();
@@ -329,7 +329,7 @@ const __class = declare('crm.Application', [Application], {
       };
     }
 
-    if (!App.mingleEnabled && credentials.remember) {
+    if (!this.mingleEnabled && credentials.remember) {
       try {
         if (window.localStorage) {
           window.localStorage.setItem('credentials', Base64.encode(json.stringify({
@@ -857,7 +857,7 @@ const __class = declare('crm.Application', [Application], {
   setupRedirectHash: function setupRedirectHash() {
     let isMingleRefresh = false;
     if (this._hasValidRedirect()) {
-      if (App.mingleEnabled) {
+      if (this.mingleEnabled) {
         const vars = this.redirectHash.split('&');
         for (let i = 0; i < vars.length; i++) {
           const pair = vars[i].split('=');
@@ -872,7 +872,7 @@ const __class = declare('crm.Application', [Application], {
         }
       }
       if (isMingleRefresh) {
-        const view = this.getView(App.getDefaultViews()[0]);
+        const view = this.getView(this.getDefaultViews()[0]);
         if (view) {
           view.show();
         }

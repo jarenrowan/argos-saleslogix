@@ -19,7 +19,7 @@ import '../Models/ErpShipTo/SData';
 
 const __class = declare('crm.Integrations.BOE.Modules.ShipToModule', [_Module], {
   init: function init() {
-    App.picklistService.registerPicklistToView('SyncStatus', 'erpshipto_detail');
+    this.app.picklistService.registerPicklistToView('SyncStatus', 'erpshipto_detail');
   },
   loadViews: function loadViews() {
     const am = this.applicationModule;

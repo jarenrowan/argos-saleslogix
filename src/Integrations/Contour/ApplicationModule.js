@@ -112,7 +112,7 @@ const __class = declare('crm.Integrations.Contour.ApplicationModule', [Applicati
           return;
         }
         const geocode = this.entry.Address;
-        const view = App.getView('pxSearch_Accounts');
+        const view = this.app.getView('pxSearch_Accounts');
         view.refreshRequired = true;
         view.lat = geocode.GeocodeLatitude;
         view.lon = geocode.GeocodeLongitude;

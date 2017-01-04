@@ -40,7 +40,7 @@ const __class = declare('crm.Integrations.BOE.Modules.OpportunityModule', [_Modu
 
     lang.extend(crm.Views.Opportunity.Detail, {
       _onAddQuoteClick: function _onAddQuoteClick() {
-        const request = new Sage.SData.Client.SDataServiceOperationRequest(App.getService());
+        const request = new Sage.SData.Client.SDataServiceOperationRequest(this.app.getService());
         request.setResourceKind('Opportunities');
         request.setOperationName('CreateQuoteFromOpportunity');
         const entry = {
@@ -53,7 +53,7 @@ const __class = declare('crm.Integrations.BOE.Modules.OpportunityModule', [_Modu
         };
         request.execute(entry, {
           success: (data) => {
-            const view = App.getView('quote_detail');
+            const view = this.app.getView('quote_detail');
             view.show({
               key: data.response.Result,
             });
@@ -63,7 +63,7 @@ const __class = declare('crm.Integrations.BOE.Modules.OpportunityModule', [_Modu
         });
       },
       _onAddOrderClick: function _onAddOrderClick() {
-        const request = new Sage.SData.Client.SDataServiceOperationRequest(App.getService());
+        const request = new Sage.SData.Client.SDataServiceOperationRequest(this.app.getService());
         request.setResourceKind('Opportunities');
         request.setOperationName('CreateSalesOrderFromOpportunity');
 
@@ -77,7 +77,7 @@ const __class = declare('crm.Integrations.BOE.Modules.OpportunityModule', [_Modu
         };
         request.execute(entry, {
           success: (data) => {
-            const view = App.getView('salesorder_detail');
+            const view = this.app.getView('salesorder_detail');
             view.show({
               key: data.response.Result,
             });

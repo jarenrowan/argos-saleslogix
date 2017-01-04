@@ -69,7 +69,7 @@ const __class = declare('crm.Views._GroupListMixin', null, {
   layout: null,
 
   postMixInProperties: function postMixInProperties() {
-    if (!App.enableGroups) {
+    if (!this.app.enableGroups) {
       this.groupsMode = false;
       this.groupsEnabled = false;
     }
@@ -173,7 +173,7 @@ const __class = declare('crm.Views._GroupListMixin', null, {
 
     // Set the toolbar title to the current group displayName
     const title = this.getGroupTitle(group);
-    App.setPrimaryTitle(title);
+    this.app.setPrimaryTitle(title);
     this.set('title', title);
 
     if (this._groupInitialized) {
@@ -206,7 +206,7 @@ const __class = declare('crm.Views._GroupListMixin', null, {
     const def = new Deferred();
     const groupName = this.overrideGroupLayoutName;
     const store = new SDataStore({
-      service: App.services.crm,
+      service: this.app.services.crm,
       resourceKind: 'groups',
       contractName: 'system',
       where: `((upper(family) eq '${this.entityName.toUpperCase()}') and (upper(Name) eq '${groupName.toUpperCase()}'))`,
@@ -230,7 +230,7 @@ const __class = declare('crm.Views._GroupListMixin', null, {
     let store;
     if (typeof groupName === 'string' && groupName !== '') {
       store = new SDataStore({
-        service: App.services.crm,
+        service: this.app.services.crm,
         resourceKind: 'groups',
         contractName: 'system',
         where: `((upper(family) eq '${this.entityName.toUpperCase()}') and (upper(Name) eq '${groupName.toUpperCase()}') or PluginId eq '${groupId}')`,
@@ -267,7 +267,7 @@ const __class = declare('crm.Views._GroupListMixin', null, {
       this._onApplyGroup(group);
     } else {
       const title = this.getGroupTitle();
-      App.setPrimaryTitle(title);
+      this.app.setPrimaryTitle(title);
       this.set('title', title);
       this._selectGroups();
     }
@@ -587,7 +587,7 @@ const __class = declare('crm.Views._GroupListMixin', null, {
     this._groupInitialized = false;
     this._currentGroup = null;
     this.currentGroupId = null;
-    App.setPrimaryTitle(original.title);
+    this.app.setPrimaryTitle(original.title);
     this.set('title', original.title);
 
     this.clear();
@@ -703,7 +703,7 @@ const __class = declare('crm.Views._GroupListMixin', null, {
     const def = new Deferred();
     const self = this;
     const store = new SDataStore({
-      service: App.services.crm,
+      service: this.app.services.crm,
       resourceKind: this.resourceKind,
       contractName: this.contractName,
       scope: this,
@@ -757,7 +757,7 @@ const __class = declare('crm.Views._GroupListMixin', null, {
     this._applyStateToActions(resolvedSelection);
   },
   onToolLayoutCreated: function onToolLayoutCreated(tools) {
-    if ((tools && !this._refreshAdded) && !window.App.supportsTouch()) {
+    if ((tools && !this._refreshAdded) && !this.app.supportsTouch()) {
       const refreshTool = {
         id: 'refresh',
         cls: 'fa fa-refresh fa-fw fa-lg',

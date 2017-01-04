@@ -21,7 +21,7 @@ const __class = declare('crm.Views.Login', [Edit], {
     '<div class="panel-content" data-dojo-attach-event="onkeypress: _onKeyPress, onkeyup: _onKeyUp" data-dojo-attach-point="contentNode"></div>',
     '<button data-dojo-attach-point="loginButton" class="button actionButton" data-action="authenticate"><span class="indicator fa fa-spinner fa-spin"></span><span>{%: $.logOnText %}</span></button>',
     '<span class="copyright">{%= $.copyrightText %}</span>',
-    '<span class="copyright">{%= App.getVersionInfo() %}</span>',
+    '<span class="copyright">{%= $.app.getVersionInfo() %}</span>',
     '<div style="visibility: hidden;" class="fa fa-bars"></div>', // force font-awesome to be included on login
     '</div>',
   ]),
@@ -83,11 +83,11 @@ const __class = declare('crm.Views.Login', [Edit], {
     }
   },
   onShow: function onShow() {
-    const credentials = App.getCredentials();
+    const credentials = this.app.getCredentials();
 
     if (credentials) {
-      App.authenticateUser(credentials, {
-        success: App.onHandleAuthenticationSuccess,
+      this.app.authenticateUser(credentials, {
+        success: this.app.onHandleAuthenticationSuccess,
         scope: this,
       });
     }
@@ -159,7 +159,7 @@ const __class = declare('crm.Views.Login', [Edit], {
   validateCredentials: function validateCredentials(credentials) {
     this.disable();
 
-    App.authenticateUser(credentials, {
+    this.app.authenticateUser(credentials, {
       success: function success() {
         if (this.fields.remember.getValue() !== true) {
           this.fields.username.setValue('');
@@ -171,7 +171,7 @@ const __class = declare('crm.Views.Login', [Edit], {
         if (attr) {
           attr.value = 'false';
         }
-        App.onHandleAuthenticationSuccess();
+        this.app.onHandleAuthenticationSuccess();
       },
       failure: function failure(result) {
         this.enable();

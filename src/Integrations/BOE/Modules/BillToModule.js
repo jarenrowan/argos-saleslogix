@@ -17,7 +17,7 @@ import '../Models/ErpBillTo/SData';
 
 const __class = declare('crm.Integrations.BOE.Modules.BillToModule', [_Module], {
   init: function init() {
-    App.picklistService.registerPicklistToView('SyncStatus', 'erpbillto_detail');
+    this.application.picklistService.registerPicklistToView('SyncStatus', 'erpbillto_detail');
   },
   loadViews: function loadViews() {
     const am = this.applicationModule;
