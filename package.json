@@ -12,7 +12,7 @@
   "scripts": {
     "test": "npm run build && grunt test",
     "testbasic": "grunt test:basic",
-    "less": "grunt less",
+    "less": "grunt postcss",
     "start": "node scripts/server.js",
     "build": "babel src --out-dir src-out --source-maps inline",
     "css": "grunt postcss:less && grunt postcss:development",
