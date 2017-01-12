@@ -24,7 +24,7 @@ module.exports = function gruntLess(grunt) {
         ],
       },
       files: {
-        'dist/css/*.css': 'content/css/*.css',
+        'min/css/app.min.debug.css': 'content/css/all.css',
       },
       // dist: {
       //   'content/css': 'dist/css/*.css',
