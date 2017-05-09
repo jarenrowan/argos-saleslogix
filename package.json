@@ -8,6 +8,7 @@
   "scripts": {
     "test": "yarn run build && grunt test",
     "testbasic": "grunt test:basic",
+    "selenium": "SELENIUM_BROWSER=chrome node tests/integration/main.js",
     "less": "grunt less",
     "start": "node scripts/server.js",
     "build": "babel src --out-dir src-out --source-maps inline",
@@ -40,6 +41,7 @@
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "node-sass": "^4.5.0",
+    "selenium-webdriver": "^3.4.0",
     "spdy": "^3.4.4"
   },
   "dependencies": {
