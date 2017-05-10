@@ -3,7 +3,7 @@ LoginPage
 """
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from integration.pages.common import CommonPage
+from .common import CommonPage
 
 class LoginPage(object):
     """
@@ -22,7 +22,6 @@ class LoginPage(object):
         self.wait_for_ping()
 
     def init_elements(self):
-        self.common.init_elements()
         self.login_text = self.driver.find_element_by_id('username-display')
         self.password_text = self.driver.find_element(
             by=By.ID, value='password-display')
