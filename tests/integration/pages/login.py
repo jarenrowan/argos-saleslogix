@@ -1,12 +1,20 @@
+"""
+LoginPage
+"""
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from integration.pages.common import CommonPage
 
 class LoginPage(object):
-
+    """
+    class LoginPage.
+    """
     def __init__(self, driver):
         self.common = CommonPage(driver)
         self.driver = driver
+        self.login_button = None
+        self.login_text = None
+        self.password_text = None
 
     def navigate(self):
         self.common.navigate()
@@ -14,6 +22,7 @@ class LoginPage(object):
         self.wait_for_ping()
 
     def init_elements(self):
+        self.common.init_elements()
         self.login_text = self.driver.find_element_by_id('username-display')
         self.password_text = self.driver.find_element(
             by=By.ID, value='password-display')
@@ -23,7 +32,7 @@ class LoginPage(object):
     def wait_for_ping(self):
         WebDriverWait(self.driver, 10).until(lambda d: self.login_text.is_enabled())
 
-    def set_user_name(self, user_name):
+    def set_username(self, user_name):
         self.login_text.send_keys(user_name)
 
     def set_password(self, password):

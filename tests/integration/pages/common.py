@@ -5,3 +5,6 @@ class CommonPage(object):
 
     def navigate(self):
         self.driver.get(self.url)
+
+    def init_elements(self):
+        pass
