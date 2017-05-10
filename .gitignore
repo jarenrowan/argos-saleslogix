@@ -62,3 +62,4 @@ scripts/config.json
 src-out/
 min/css/
 tests/integration/__pycache__
+tests/integration/pages/__pycache__
