@@ -61,3 +61,4 @@ coverage
 scripts/config.json
 src-out/
 min/css/
+tests/integration/__pycache__
