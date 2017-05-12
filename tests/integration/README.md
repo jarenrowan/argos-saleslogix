@@ -21,4 +21,3 @@
 
 ## TODOS
 * Pass the selenium server and mobile URL in as arguments
-* Create a Powershell script for running the tests
