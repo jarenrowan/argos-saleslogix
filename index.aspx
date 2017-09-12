@@ -10,7 +10,7 @@
 <head>
     <uc1:head runat="server" id="index_head" />
     <!-- Place holder for custom modules. Do not remove line below -->
-    <!-- Sample --> <link type="text/css" rel="stylesheet" href="content/css/sample.css" /> <script type="text/javascript" src="content/javascript/argos-sample.js"></script>
+    <!--{{modules}}-->
 </head>
 <body>
     <uc1:body runat="server" id="index_body" />
