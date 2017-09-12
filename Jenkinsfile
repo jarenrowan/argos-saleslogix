@@ -78,6 +78,7 @@ stage('Copying to IIS') {
 stage('Sending Slack notification') {
   node {
     slack.success('Mobile built successfully')
+    slack.success('Mobile built successfully')
   }
 }
 

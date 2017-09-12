@@ -44,6 +44,7 @@ Thumbs.db
 # build output
 deploy/
 dist/
+temp.uglify.js
 
 # module development shells
 index-dev-*.html
@@ -60,3 +61,5 @@ coverage
 scripts/config.json
 src-out/
 min/css/
+
+wwwroot

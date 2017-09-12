@@ -53,7 +53,7 @@ Starting in mobile 3.4, the index-dev-\*.html files no longer point to src, inst
 
 		cd C:\code\mobile
 3. 	Ensure you have a MIME type setup for .less files. Example using web.config in IIS7:
-	```    
+	```
 	<system.webServer>
         	<staticContent>
             		<mimeMap fileExtension=".less" mimeType="text/css" />
@@ -66,15 +66,11 @@ Starting in mobile 3.4, the index-dev-\*.html files no longer point to src, inst
 
 ### Building A Release Version From Source
 
-#### Requirements
-If building on windows, the argos-sdk tools folder contains a binary called JsBit that will read the release.jsb2 file and combine/minify the required resources. If building from Linux or OSX, Mono is required to execute JsBit.
 
 ### Build scripts
-- Change to the argo-sdk directory, and execute the build script there: `cd ..\argos-sdk` and then `build\release.cmd` (`./build/release.sh` for non Windows)
-- Copy the contents of `argos-sdk\deploy` to a common shared directory, such as `C:\code\mobile\deploy`
-- Change back to the argos-saleslogix directory and run `build\release.cmd`
-- Copy the contents of `argos-saleslogix\deploy` to the same shared deploy directory used in the sdk step (`C:\code\mobile\deploy`)
-- Copy the deploy folder to your web server
+- Change to the argo-sdk directory, and execute the build script there in Powershell: `cd ..\argos-sdk` and then `build\release.ps1`
+- Change back to the argos-saleslogix directory and run `build\release.ps1` in Powershell
+- Copy the wwwroot folder to your web server. This folder is located at same location as argos-saleslogix
 
 ### Deploying
 

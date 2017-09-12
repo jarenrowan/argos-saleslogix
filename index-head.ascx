@@ -98,7 +98,8 @@
             { name: 'dojo', location: 'content/dojo/dojo' },
             { name: 'dijit', location: 'content/dojo/dijit' },
             { name: 'configuration', location: 'configuration' },
-            { name: 'localization', location: 'localization' }
+            { name: 'localization', location: 'localization' },
+            //custom-namespace
         ],
         map: {
             '*': {

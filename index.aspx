@@ -1,4 +1,4 @@
-﻿<%@ Page AutoEventWireup="true" Language="c#" Culture="auto" UICulture="auto" CodeFile="Index.aspx.cs" Inherits="Index" %>
+<%@ Page AutoEventWireup="true" Language="c#" Culture="auto" UICulture="auto" CodeFile="Index.aspx.cs" Inherits="Index" %>
 <%@ Register Src="~/index-head.ascx" TagPrefix="uc1" TagName="head" %>
 <%@ Register Src="~/index-body.ascx" TagPrefix="uc1" TagName="body" %>
 
@@ -10,7 +10,7 @@
 <head>
     <uc1:head runat="server" id="index_head" />
     <!-- Place holder for custom modules. Do not remove line below -->
-    <!--{{modules}}-->
+    <!-- Sample --> <link type="text/css" rel="stylesheet" href="content/css/sample.css" /> <script type="text/javascript" src="content/javascript/argos-sample.js"></script>
 </head>
 <body>
     <uc1:body runat="server" id="index_body" />
