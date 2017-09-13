@@ -61,11 +61,6 @@ module.exports = function(grunt) {
             src: './index.aspx',
             dest: './deploy/bundle/model/Portal/SlxMobile/SourceFiles/products/argos-saleslogix/index.aspx'
         }],
-      }
-    },
-    jsb: {
-      file: grunt.file.readJSON('./build/release.jsb2'),
-      options: {
       },
     },
   });

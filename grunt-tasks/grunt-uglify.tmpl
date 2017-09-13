@@ -1,0 +1,76 @@
+module.exports = function(grunt) {
+    grunt.config('uglify', {
+      options: {
+        screwIE8: true,
+        sourceMap: false,
+        ASCIIOnly: true,
+        compress: {
+          drop_console: true,
+          cascade: true,
+          join_vars: true,
+          if_return: true,
+          conditionals: true,
+          loops: true,
+          booleans: true,
+          properties: true,
+          sequences: true,
+          drop_debugger: true,
+          unused: true,
+        },
+      },
+      argos_saleslogix: {
+        files: {
+          'deploy/content/javascript/argos-saleslogix.js': [
+            <% files.forEach(function(file, i) { %>'<%- file.folderName.replace("../src", "src") %>/<%- file.fileName %>',
+            <%});%>
+          ],
+        },
+      },
+      dojo_dependencies: {
+        files: {
+          'deploy/content/dojo/dojo-dependencies.js': [
+            '../../argos-sdk/libraries/dojo/dojo/hash.js',
+            '../../argos-sdk/libraries/dojo/dojo/router/RouterBase.js',
+            '../../argos-sdk/libraries/dojo/dojo/router.js',
+            '../../argos-sdk/libraries/dojo/dojo/i18n.js',
+            '../../argos-sdk/libraries/dojo/dojo/regexp.js',
+            '../../argos-sdk/libraries/dojo/dojo/string.js',
+            '../../argos-sdk/libraries/dojo/dojo/cache.js',
+            '../../argos-sdk/libraries/dojo/dojo/number.js',
+            '../../argos-sdk/libraries/dojo/dojo/touch.js',
+            '../../argos-sdk/libraries/dojo/dojo/NodeList-manipulate.js',
+            '../../argos-sdk/libraries/dojo/dojo/hccss.js',
+            '../../argos-sdk/libraries/dojo/dojo/promise/all.js',
+            '../../argos-sdk/libraries/dojo/dijit/main.js',
+            '../../argos-sdk/libraries/dojo/dijit/Destroyable.js',
+            '../../argos-sdk/libraries/dojo/dijit/a11yclick.js',
+            '../../argos-sdk/libraries/dojo/dijit/registry.js',
+            '../../argos-sdk/libraries/dojo/dojo/Stateful.js',
+            '../../argos-sdk/libraries/dojo/dijit/_WidgetBase.js',
+            '../../argos-sdk/libraries/dojo/dijit/_AttachMixin.js',
+            '../../argos-sdk/libraries/dojo/dijit/_TemplatedMixin.js',
+            '../../argos-sdk/libraries/dojo/dijit/_OnDijitClickMixin.js',
+            '../../argos-sdk/libraries/dojo/dojo/window.js',
+            '../../argos-sdk/libraries/dojo/dijit/_base/manager.js',
+            '../../argos-sdk/libraries/dojo/dijit/a11y.js',
+            '../../argos-sdk/libraries/dojo/dijit/focus.js',
+            '../../argos-sdk/libraries/dojo/dijit/_FocusMixin.js',
+            '../../argos-sdk/libraries/dojo/dojo/uacss.js',
+            '../../argos-sdk/libraries/dojo/dijit/hccss.js',
+            '../../argos-sdk/libraries/dojo/dijit/_Widget.js',
+            '../../argos-sdk/libraries/dojo/dojo/NodeList-traverse.js',
+            '../../argos-sdk/libraries/dojo/dojo/_base/url.js',
+            '../../argos-sdk/libraries/dojo/dojo/date/stamp.js',
+            '../../argos-sdk/libraries/dojo/dojo/parser.js',
+            '../../argos-sdk/libraries/dojo/dojo/store/util/QueryResults.js',
+            '../../argos-sdk/libraries/dojo/dojo/store/util/SimpleQueryEngine.js',
+            '../../argos-sdk/libraries/dojo/dojo/store/Memory.js',
+            '../../argos-sdk/libraries/dojo/dijit/_base/wai.js',
+            '../../argos-sdk/libraries/dojo/dojo/colors.js',
+          ],
+        },
+      },
+    });
+
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+  };

@@ -1,4 +1,4 @@
-﻿<%@ Page AutoEventWireup="true" Language="c#" Culture="auto" UICulture="auto" CodeFile="Index.aspx.cs" Inherits="Index" %>
+<%@ Page AutoEventWireup="true" Language="c#" Culture="auto" UICulture="auto" CodeFile="Index.aspx.cs" Inherits="Index" %>
 <%@ Register Src="~/index-head.ascx" TagPrefix="uc1" TagName="head" %>
 <%@ Register Src="~/index-body.ascx" TagPrefix="uc1" TagName="body" %>
 
