@@ -232,6 +232,14 @@
             'configuration/development'
           ],
           application: 'crm/Application',
+          // For production, use one key since they will all get copied there
+          // localePaths: {
+          //    all : './locales/{{lng}}/{{ns}}.json'
+          // }
+          localePaths: {
+            argos: '../../argos-sdk/locales/{{lng}}/{{ns}}.json',
+            crm: './locales/{{lng}}/{{ns}}.json'
+          }
           localeFiles: [
             './localization/locales/crm/en/strings.l20n',
             './localization/locales/icboe/en/strings.l20n',

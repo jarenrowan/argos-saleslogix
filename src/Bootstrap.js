@@ -25,6 +25,7 @@ export default function bootstrap({
   parentRegionLocale,
   application,
   configuration,
+  localePaths,
   localeFiles,
   regionalFiles,
   isRegionMetric,
