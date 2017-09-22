@@ -34,7 +34,9 @@ module.exports = {
     "page": false,
     "ICRMCustomizationSDK": false,
     "ICRMCommonSDK": false,
-    "ICRMServicesSDK": false
+    "ICRMServicesSDK": false,
+    "i18n": false,
+    "i18nextXHRBackend": false,
   },
   rules: {
     /**

@@ -39,32 +39,6 @@ public partial class Index_html : System.Web.UI.UserControl
         }
     }
 
-    private string _legacyLocalization;
-    protected string LegacyLocalization
-    {
-        get
-        {
-            if (null == _legacyLocalization)
-                _legacyLocalization = Serialize(
-                      EnumerateLocalizations("localization")
-                          .Select(item => item.Path.Substring(0, item.Path.Length - 3)));
-            return _legacyLocalization;
-        }
-    }
-
-    private string _legacyLocalizationFallback;
-    protected string LegacyLocalizationFallback
-    {
-        get
-        {
-            if (null == _legacyLocalizationFallback)
-                _legacyLocalizationFallback = Serialize(
-                  EnumerateLocalizations(string.Empty, "localization", "en")
-                      .Select(item => item.Path.Substring(0, item.Path.Length - 3)));
-            return _legacyLocalizationFallback;
-        }
-    }
-
     private string _localeFiles;
     protected string LocaleFiles
     {

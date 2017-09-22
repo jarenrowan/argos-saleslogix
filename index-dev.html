@@ -109,8 +109,9 @@
   <!-- PouchDB -->
   <script type="text/javascript" src="../../argos-sdk/libraries/pouchdb/pouchdb-6.3.4.js"></script>
 
-  <!-- L20N.js -->
-  <script type="text/javascript" src="../../argos-sdk/libraries/l20n/l20n.js"></script>
+  <!-- i18next -->
+  <script type="text/javascript" src="../../argos-sdk/libraries/i18next/i18next.js"></script>
+  <script type="text/javascript" src="../../argos-sdk/libraries/i18next/i18nextXHRBackend.js"></script>
 
   <!-- jQuery -->
   <script type="text/javascript" src="./node_modules/jquery/dist/jquery.js"></script>
@@ -231,12 +232,6 @@
             'configuration/development'
           ],
           application: 'crm/Application',
-          legacyLocalization: [
-            'localization/saleslogix/en'
-          ],
-          legacyLocalizationFallback: [
-            'localization/saleslogix/en'
-          ],
           localeFiles: [
             './localization/locales/crm/en/strings.l20n',
             './localization/locales/icboe/en/strings.l20n',

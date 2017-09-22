@@ -1,0 +1,34 @@
+{
+  "proxAppModule": {
+    "viewAccountsNearbyText": "Показать клиентов вблизи",
+    "addressNotGeocodedErrorText": "Геокодирование адреса не выполнено. Невозможен поиск клиентов вблизи.",
+    "accountsNearText": "Клиенты рядом с \\\"${0}\\\"",
+    "helpTitleText": "Справка Contour"
+  },
+  "acctPxSearch": {
+    "accountsNearMeText": "Клиенты рядом со мной",
+    "addActivityActionText": "Добавить действие",
+    "addAttachmentActionText": "Добавить вложение",
+    "addNoteActionText": "Добавить заметку",
+    "callMainActionText": "Вызов по основному номеру",
+    "currentLocationErrorText": "Не удалось получить ваше текущее местоположение. Невозможно выполнить поиск.",
+    "editActionText": "Редактировать",
+    "faxAbbreviationText": "Факс: ",
+    "kilometerAbbrevText": "км",
+    "mileAbbrevText": "мили",
+    "phoneAbbreviationText": "Телефон: ",
+    "titleText": "Клиенты рядом со мной",
+    "viewContactsActionText": "Контакты",
+    "accountTypeText": "Тип клиента:"
+  },
+  "locPicker": {
+    "accountsNearText": "Клиенты рядом с \\\"${0}\\\"",
+    "myHouseText": "Мой дом",
+    "myOfficeText": "Мой офис",
+    "titleText": "Поиск расстояния Contour"
+  },
+  "placeModel": {
+    "entityDisplayName": "Место",
+    "entityDisplayNamePlural": "Места"
+  }
+}

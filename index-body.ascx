@@ -34,8 +34,6 @@
                 isRegionMetric: <%= (CurrentRegion.IsMetric) ? "true" : "false" %>,
                 configuration: <%= Configuration %>,
                 application: 'crm/Application',
-                legacyLocalization: <%= LegacyLocalization %>,
-                legacyLocalizationFallback: <%= LegacyLocalizationFallback %>,
                 // TODO limit to only strings
                 localeFiles: <%= LocaleFiles %>,
                 regionalFiles: <%= RegionalFiles %>,
