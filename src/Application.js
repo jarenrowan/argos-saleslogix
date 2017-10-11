@@ -177,6 +177,24 @@ class Application extends SDKApplication {
       request.setRequestHeader('X-Application-Version', `${version.major}.${version.minor}.${version.revision};${id}`);
       return original.apply(this, arguments);
     };
+
+    if (window.Worker) {
+      // TODO: If worker is not available, do we create somethign that mocks
+      // the API that runs on the main thread or just start turning off features?
+      this.worker = new Worker('./workers/worker.js');
+
+      this.worker.onerror = function onWorkerError(e) {
+        console.log('Error in worker.');
+        console.dir(e);
+      };
+
+      this.worker.onmessage = function onWorkerMessage(e) {
+        console.log('Recieved message from worker.');
+        console.dir(e);
+      };
+
+      this.worker.postMessage([1, 2, 3]);
+    }
   }
 
   initPreferences() {
