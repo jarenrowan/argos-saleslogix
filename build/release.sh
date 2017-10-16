@@ -5,6 +5,7 @@ fi
 
 mkdir -p deploy/localization/locales/crm
 mkdir -p deploy/help
+mkdir -p deploy/workers
 mkdir -p deploy/content/javascript
 mkdir -p deploy/content/images
 mkdir -p deploy/content/css

@@ -6,6 +6,7 @@ if exist deploy (
 
 mkdir deploy\localization
 mkdir deploy\help
+mkdir deploy\workers
 mkdir deploy\content\javascript
 mkdir deploy\content\images
 mkdir deploy\content\css
